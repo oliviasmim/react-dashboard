@@ -1,11 +1,13 @@
-import Button from "react-bootstrap/Button";
+import React from 'react';
+import DashboardLayout from './pages/dashboard/dashboard';
 
-function App() {
-	return (
-		<div>
-			Hello world! <Button>Teste</Button>
-		</div>
-	);
-}
+const App: React.FC = () => {
+  return (
+    <DashboardLayout>
+      <h1>Bem-vindo ao Dashboard!</h1>
+      <p>Este é o conteúdo principal.</p>
+    </DashboardLayout>
+  );
+};
 
 export default App;
