@@ -1,56 +1,121 @@
+
 .sidebar {
   width: 200px;
   height: 100vh;
-  color: white;
+  background-color: #f8f9fa;
   display: flex;
   flex-direction: column;
-  padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-.sidebar .logo {
+.logo {
   margin-bottom: 20px;
   font-size: 20px;
   text-align: center;
   color: rgb(28, 51, 87);
-  padding: 10px;
+  padding: 20px;
   border-radius: 5px;
   display: flex;
   align-items: center;
   gap: 10px;
   font-weight: 900;
-
-  img {
-    width: 40px;
-  }
 }
 
-.sidebar nav ul {
+.logo img {
+  width: 30px;
+}
+
+nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.sidebar nav ul li {
+.navItem {
+  text-decoration: none !important;
+}
+
+nav ul li {
   margin: 15px 0;
   display: flex;
+  height: 40px;
+  padding: 0 30px;
   align-items: center;
   gap: 10px;
+  position: relative;
+  justify-content: flex-start;
+  text-decoration: none !important;
+}
+
+nav ul li i {
+  color: #4f4f57;
+  font-size: 20px;
+}
+
+nav ul li {
+  color: #4f4f57;
+  font-size: 15px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.active li {
+  font-weight: bold;
+  color: #605bff;
+  position: relative;
+}
+
+.active i{
+  color: #605bff;
+
+}
+
+.active li::before {
+  content: "";
+  width: 20%;
+  height: 100%;
+  background: linear-gradient(to right, #615bff70, #a7a1ff48, #ffffff60);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+}
+
+.footer {
+  margin-top: auto; 
+  padding: 10px;
+  background-color: #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 
   i {
-    color: black;
-    font-size: 20px;
+    margin-left: auto;
   }
 }
 
-.sidebar nav ul li a {
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-  font-size: 15px;
-  display: block;
-  transition: color 0.3s;
+.avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
 }
 
-.sidebar nav ul li a:hover {
-  color: #1abc9c;
+.userinfo {
+  display: flex;
+  flex-direction: column;
+
+
+  span {
+    font-size: 12px;
+    margin: 0;
+  }
+
+  p {
+    font-size: 10px;
+    margin: 0;
+  }
 }
