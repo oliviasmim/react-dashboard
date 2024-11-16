@@ -13,10 +13,10 @@ const ScatterPlotChart: React.FC = () => {
         const data: number[][] = await fetchChartData("BTCUSDT", "1d", 180);
 
         const scatter = data.map((entry: number[]) => {
-          const volume = parseFloat(entry[7] as unknown as string); // Volume
-          const high = parseFloat(entry[2] as unknown as string); // High
-          const low = parseFloat(entry[3] as unknown as string); // Low
-          const percentDiff = ((high - low) / low) * 100; // Percent difference
+          const volume = parseFloat(entry[7] as unknown as string); 
+          const high = parseFloat(entry[2] as unknown as string); 
+          const low = parseFloat(entry[3] as unknown as string); 
+          const percentDiff = ((high - low) / low) * 100; 
 
           return [volume, percentDiff];
         });
@@ -51,7 +51,6 @@ const ScatterPlotChart: React.FC = () => {
     },
     xAxis: {
       type: "value",
-      name: "Volume",
       axisLabel: {
         formatter: (value: number) => {
           if (value >= 1e9) return `${(value / 1e9).toFixed(1)}B`; 
@@ -62,15 +61,14 @@ const ScatterPlotChart: React.FC = () => {
       },
     },
     grid: {
-      left: "10%",
-      right: "10%",
-      top: "15%",
-      bottom: "15%",
+      left: "5%", 
+      right: "5%", 
+      top: "10%", 
+      bottom: "10%",
       containLabel: true,
     },
     yAxis: {
       type: "value",
-      name: "% Difference (High-Low)",
     },
     series: [
       {
@@ -96,6 +94,7 @@ const ScatterPlotChart: React.FC = () => {
     ],
   };
 
+  
   return <ReactECharts option={options} style={{ height: 350, width: "100%" }} />;
 };
 

@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import ReactECharts from "echarts-for-react";
-import { fetchChartData } from "../../../../services/fetch-binance-service/fetch-binance-service"; 
+import { fetchChartData } from "../../../../services/fetch-binance-service/fetch-binance-service";
 
 const TimeSeriesChart: React.FC = () => {
-  const [chartData, setChartData] = useState<{ time: string[]; price: number[] }>({ time: [], price: [] });
+  const [chartData, setChartData] = useState<{
+    time: string[];
+    price: number[];
+  }>({ time: [], price: [] });
 
   const colors = {
     purple: {
@@ -26,9 +29,11 @@ const TimeSeriesChart: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchChartData("BTCUSDT", "1d", 30); 
+      const data = await fetchChartData("BTCUSDT", "1d", 30);
 
-      const time = data.map((entry: any) => new Date(entry[0]).toLocaleDateString());
+      const time = data.map((entry: any) =>
+        new Date(entry[0]).toLocaleDateString()
+      );
       const price = data.map((entry: any) => parseFloat(entry[4]));
 
       setChartData({ time, price });
@@ -37,7 +42,7 @@ const TimeSeriesChart: React.FC = () => {
     fetchData();
   }, []);
 
-  const minValue = Math.min(...chartData.price) * 0.95;
+  const minValue = Math.min(...chartData.price) * 0.95;  
   const maxValue = Math.max(...chartData.price) * 1.05;
 
   const options = {
@@ -45,32 +50,46 @@ const TimeSeriesChart: React.FC = () => {
       left: "center",
     },
     tooltip: {
-      trigger: "axis", 
+      trigger: "axis",
       formatter: (params: any) => {
-        const { name, value } = params[0]; 
+        const { name, value } = params[0];
+        const formattedValue = new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }).format(value);
+    
         return `
           <strong>Date:</strong> ${name}<br />
-          <strong>Close Price:</strong> $${value.toFixed(2)}
+          <strong>Close Price:</strong> ${formattedValue}
         `;
       },
     },
+    
     grid: {
-      left: "10%",
-      right: "10%",
-      top: "15%",
-      bottom: "15%",
+      left: "5%", 
+      right: "5%", 
+      top: "10%", 
+      bottom: "10%",
       containLabel: true,
     },
     xAxis: {
       type: "category",
       data: chartData.time,
-      name: "Date",
     },
     yAxis: {
       type: "value",
-      name: "Close Price (USDT)",
       min: minValue,  
       max: maxValue,  
+      axisLabel: {
+        formatter: (value: number) => {
+          if (value === minValue) {
+            return '';
+          }
+          return value.toFixed(0);  
+        }
+      },
     },
     series: [
       {
@@ -88,7 +107,9 @@ const TimeSeriesChart: React.FC = () => {
     ],
   };
 
-  return <ReactECharts option={options} style={{ height: 350, width: "100%" }} />;
+  return (
+    <ReactECharts option={options} style={{ height: 350, width: "100%" }} />
+  );
 };
 
 export default TimeSeriesChart;
