@@ -15,7 +15,7 @@ interface DataState {
 const handleFetchData = async (set: (state: Partial<DataState>) => void) => {
 	set({ isLoading: true, error: null });
 	try {
-		const data = await fetchFakeData();
+		const { data } = await fetchFakeData();
 		set({ data, isLoading: false });
 	} catch (error: unknown) {
 		if (error instanceof Error) {
