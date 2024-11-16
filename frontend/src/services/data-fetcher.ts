@@ -21,7 +21,7 @@ export const fetchData = async <T>({
 			data,
 		});
 
-		return response.data;
+		return response.data.data;
 	} catch (error: unknown) {
 		if (axios.isAxiosError(error)) {
 			const message = error.response

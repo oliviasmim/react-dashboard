@@ -1,4 +1,4 @@
-import { FakeDataModel } from "../../types/fake-data-model";
+import { FakeDataModel } from "./fake-data-model";
 import { fetchData } from "../data-fetcher";
 
 const API_URL =

@@ -3,12 +3,12 @@ export interface FakeDataModel {
 	company: string;
 	country: string;
 	employees: number;
-	existing_customer: boolean;
-	last_contacted: string; // ISO date string
+	last_contacted: string; 
 	notes?: string;
 	revenue: number;
 	sales_rep: string;
 	state: string;
 	website: string;
 	zipcode: string;
+	purchased: boolean;
 }
