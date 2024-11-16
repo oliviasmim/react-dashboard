@@ -98,4 +98,4 @@ const ScatterPlotChart: React.FC = () => {
 	return <ReactECharts option={options} style={{ width: "100%" }} />;
 };
 
-export default ScatterPlotChart;
+export { ScatterPlotChart };

@@ -110,4 +110,4 @@ const TimeSeriesChart: React.FC = () => {
 	return <ReactECharts option={options} style={{ width: "100%" }} />;
 };
 
-export default TimeSeriesChart;
+export { TimeSeriesChart };
