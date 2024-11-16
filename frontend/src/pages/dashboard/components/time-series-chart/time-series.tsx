@@ -108,7 +108,7 @@ const TimeSeriesChart: React.FC = () => {
   };
 
   return (
-    <ReactECharts option={options} style={{ height: 350, width: "100%" }} />
+    <ReactECharts option={options} style={{ width: "100%" }} />
   );
 };
 

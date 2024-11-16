@@ -27,15 +27,27 @@
   gap: 20px;
 }
 
-.graph1,
-.graph2 {
+.graphContainer {
   background-color: #e0e0e0;
   height: 350px;
   border-radius: 8px;
   position: relative;
-  padding: 0.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
+.graphHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #b9b9b9;
+}
+
+.graphContent {
+  flex-grow: 1;
+}
 
 
 .table {
@@ -49,7 +61,6 @@
   width: 100%;
   height: 100%;
   border-radius: 8px;
-  padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 

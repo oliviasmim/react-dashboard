@@ -95,7 +95,7 @@ const ScatterPlotChart: React.FC = () => {
   };
 
   
-  return <ReactECharts option={options} style={{ height: 350, width: "100%" }} />;
+  return <ReactECharts option={options} style={{  width: "100%" }} />;
 };
 
 export default ScatterPlotChart;
