@@ -9,6 +9,8 @@ import { Button } from "react-bootstrap";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import styles from "./dashboard.module.css";
 import { DataTable } from "./components/data-table/data-table";
+import TimeSeriesChart from './components/time-series-chart/time-series'
+import ScatterPlotChart from "./components/scatterplot-chart/scatterplot";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -79,8 +81,12 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
             <div className={styles.mainContent}>
               <div className={styles.graphs}>
                 {/* Graphs go here */}
-                <div className={styles.graph1}> grafico de linha </div>
-                <div className={styles.graph2}> grafico de pontos </div>
+                <div className={styles.graph1}> 
+                  <TimeSeriesChart />
+                </div>
+                <div className={styles.graph2}> 
+                  <ScatterPlotChart />
+                </div>
               </div>
               <div className={styles.table}>
                 {/* Table goes here */}

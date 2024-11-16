@@ -30,11 +30,13 @@
 .graph1,
 .graph2 {
   background-color: #e0e0e0;
-  height: 200px;
+  height: 350px;
   border-radius: 8px;
   position: relative;
-  padding: 1rem;
+  padding: 0.5rem;
 }
+
+
 
 .table {
   display: flex;
