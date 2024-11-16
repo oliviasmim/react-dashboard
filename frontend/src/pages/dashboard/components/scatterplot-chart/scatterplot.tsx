@@ -12,7 +12,6 @@ const ScatterPlotChart: React.FC = () => {
 		const fetchData = async () => {
 			try {
 				const data: any = await fetchCurrencyData("BTCUSDT", "1d", 180);
-				console.log(data);
 				const scatter = data.map((entry: number[]) => {
 					const volume = parseFloat(entry[7] as unknown as string);
 					const high = parseFloat(entry[2] as unknown as string);

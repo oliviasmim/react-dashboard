@@ -1,12 +1,8 @@
-import React from 'react';
-import DashboardLayout from './pages/dashboard/dashboard';
+import React from "react";
+import { Dashboard } from "./pages/dashboard/dashboard";
 
 const App: React.FC = () => {
-  return (
-    <DashboardLayout>
-      <p>conteúdo principal.</p>
-    </DashboardLayout>
-  );
+	return <Dashboard />;
 };
 
 export default App;

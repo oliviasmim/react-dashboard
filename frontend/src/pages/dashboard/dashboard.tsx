@@ -5,11 +5,7 @@ import PageLayout from "../../components/layout/page-layout";
 import { TimeSeriesChart } from "./components/time-series-chart/time-series";
 import { ScatterPlotChart } from "./components/scatterplot-chart/scatterplot";
 
-interface DashboardProps {
-	children: React.ReactNode;
-}
-
-const Dashboard: React.FC<DashboardProps> = () => {
+const Dashboard: React.FC = () => {
 	return (
 		<PageLayout pageName="Dashboard">
 			<div className={styles.mainContent}>
@@ -22,7 +18,6 @@ const Dashboard: React.FC<DashboardProps> = () => {
 					</div>
 				</div>
 				<div className={styles.table}>
-					{/* Table goes here */}
 					<div className={styles.table1}>
 						<DataTable />
 					</div>
