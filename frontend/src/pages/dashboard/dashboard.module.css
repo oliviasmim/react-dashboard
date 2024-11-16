@@ -18,6 +18,7 @@
   flex-direction: column;
   gap: 20px;
   flex: 1;
+  overflow: auto;
 }
 
 .graphs {
@@ -63,6 +64,7 @@
 .contentbuttons {
   width: 100%;
   display: flex;
+  padding: 1rem 0 1rem 0;
 
   nav {
     display: flex;

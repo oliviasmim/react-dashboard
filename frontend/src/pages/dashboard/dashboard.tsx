@@ -8,14 +8,13 @@ import Header from "../../components/header";
 import { Button } from "react-bootstrap";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import styles from "./dashboard.module.css";
-
+import { DataTable } from "./components/data-table/data-table";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
 }
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
-  
   // const [checked, setChecked] = useState(false);
   // const [radioValue, setRadioValue] = useState("1");
 
@@ -31,9 +30,8 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
           <Sidebar />
           <main className={styles.content}>
             <Header />
-            <div className={styles.mainContent}>
-              <div className={styles.contentbuttons}>
-                {/* <ButtonGroup className={styles.buttonGroup}>
+            <div className={styles.contentbuttons}>
+              {/* <ButtonGroup className={styles.buttonGroup}>
                   {radios.map((radio, idx) => (
                     <ToggleButton
                       key={idx}
@@ -56,29 +54,29 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
                   ))}
                 </ButtonGroup> */}
 
-                <Breadcrumb>
-                  <Breadcrumb.Item active style={{ color: "#636363" }}>
-                    Home
-                  </Breadcrumb.Item>
-                  <Breadcrumb.Item active style={{ color: "#636363" }}>
-                    Library
-                  </Breadcrumb.Item>
-                  <Breadcrumb.Item
-                    active
-                    style={{ color: "#000", fontWeight: "bold" }}
-                  >
-                    Dashboard
-                  </Breadcrumb.Item>
-                </Breadcrumb>
+              <Breadcrumb>
+                <Breadcrumb.Item active style={{ color: "#636363" }}>
+                  Home
+                </Breadcrumb.Item>
+                <Breadcrumb.Item active style={{ color: "#636363" }}>
+                  Library
+                </Breadcrumb.Item>
+                <Breadcrumb.Item
+                  active
+                  style={{ color: "#000", fontWeight: "bold" }}
+                >
+                  Dashboard
+                </Breadcrumb.Item>
+              </Breadcrumb>
 
-                <Button
-                  as="input"
-                  type="reset"
-                  className={styles.buttonreset}
-                  value="Reset"
-                />
-
-              </div>
+              <Button
+                as="input"
+                type="reset"
+                className={styles.buttonreset}
+                value="Reset"
+              />
+            </div>
+            <div className={styles.mainContent}>
               <div className={styles.graphs}>
                 {/* Graphs go here */}
                 <div className={styles.graph1}> grafico de linha </div>
@@ -86,7 +84,9 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
               </div>
               <div className={styles.table}>
                 {/* Table goes here */}
-                <div className={styles.table1}>tabela</div>
+                <div className={styles.table1}>
+                  <DataTable />
+                </div>
               </div>
               {/* {children} */}
             </div>
