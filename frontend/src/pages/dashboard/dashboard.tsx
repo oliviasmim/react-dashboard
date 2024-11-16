@@ -2,12 +2,13 @@ import React from "react";
 // import { useState } from "react";
 import Sidebar from "../../components/sidebar/index";
 import { BrowserRouter as Router } from "react-router-dom";
-import styles from "./dashboard.module.css";
 import Header from "../../components/header";
 // import ToggleButton from "react-bootstrap/ToggleButton";
 // import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { Button } from "react-bootstrap";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
+import styles from "./dashboard.module.css";
+
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -22,16 +23,6 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   //   { name: "Graphs", value: "1" },
   //   { name: "Analytics", value: "2" },
   // ];
-
-  const buttonStyle = {
-    backgroundColor: "#007bff",
-    color: "#fff",
-    border: "none",
-    padding: "10px 20px",
-    fontSize: "16px",
-    borderRadius: "5px",
-    cursor: "pointer",
-  };
 
   return (
     <>
@@ -87,9 +78,6 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
                   value="Reset"
                 />
 
-                <Button className={styles.btnCustom}>
-                  Custom Bootstrap Button
-                </Button>
               </div>
               <div className={styles.graphs}>
                 {/* Graphs go here */}
