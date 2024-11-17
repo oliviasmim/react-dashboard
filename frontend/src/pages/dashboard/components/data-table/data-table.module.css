@@ -9,4 +9,13 @@
         font-size: 14px;
         font-weight: 400;
     }
+
+    button {
+        color: #fff;
+    }
+
+    button:hover {
+        cursor: pointer;
+        color: #fff;
+    }
 }
