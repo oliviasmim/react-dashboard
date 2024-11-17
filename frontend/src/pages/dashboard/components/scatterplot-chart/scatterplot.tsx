@@ -8,6 +8,27 @@ const ScatterPlotChart: React.FC = () => {
 	const [maxVolume, setMaxVolume] = useState<number>(1);
 	const [maxPercentDiff, setMaxPercentDiff] = useState<number>(1);
 
+	const colors = {
+		purple: {
+			default: "rgba(149, 76, 233, 1)",
+			half: "rgba(149, 76, 233, 0.5)",
+			quarter: "rgba(149, 76, 233, 0.25)",
+			zero: "rgba(149, 76, 233, 0)",
+		},
+		indigo: {
+			default: "rgba(80, 102, 120, 1)",
+			quarter: "rgba(80, 102, 120, 0.25)",
+		},
+		blue: {
+			default: "#5BC4FF",
+			half: "#3b74dd40",
+			pink: "#FF5BEF",
+			quarter: "#527fd3",
+			line: "#3b74dd",
+			background: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 44%, rgba(0,212,255,1) 100%)",
+		},
+	};
+
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -74,11 +95,26 @@ const ScatterPlotChart: React.FC = () => {
 			{
 				data: scatterData,
 				type: "scatter",
-				symbolSize: 5,
+				symbolSize: 7,
 				markLine: {
 					animation: false,
 					lineStyle: {
 						type: "solid",
+						color: {
+					  type: "linear",
+					  x: 0,
+					  y: 0,
+					  x2: 1,
+					  y2: 1,
+					  colorStops: [
+						{ offset: 0, color: colors.blue.default },  
+						{ offset: 1, color: colors.blue.pink },    
+					  ],
+					  globalCoord: false,
+					},
+					width: 3,
+
+						
 					},
 					label: {
 						align: "right",
@@ -94,7 +130,7 @@ const ScatterPlotChart: React.FC = () => {
 		],
 	};
 
-	return <ReactECharts option={options} style={{ width: "100%" }} />;
+	return <ReactECharts option={options} style={{ width: "100%", height: "100%" }} />;
 };
 
 export { ScatterPlotChart };

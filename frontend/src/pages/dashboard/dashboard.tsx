@@ -6,25 +6,40 @@ import { TimeSeriesChart } from "./components/time-series-chart/time-series";
 import { ScatterPlotChart } from "./components/scatterplot-chart/scatterplot";
 
 const Dashboard: React.FC = () => {
-	return (
-		<PageLayout pageName="Dashboard">
-			<div className={styles.mainContent}>
-				<div className={styles.graphs}>
-					<div className={styles.graph1}>
-						<TimeSeriesChart />
-					</div>
-					<div className={styles.graph2}>
-						<ScatterPlotChart />
-					</div>
-				</div>
-				<div className={styles.table}>
-					<div className={styles.table1}>
-						<DataTable />
-					</div>
-				</div>
-			</div>
-		</PageLayout>
-	);
+  
+  return (
+    <PageLayout pageName="Dashboard">
+      <div className={styles.mainContent}>
+        <div className={styles.graphs}>
+          <div className={styles.graphContainer}>
+            <div className={styles.graphHeader}>
+              Bitcoin Price Over Time
+              <span className={styles.subHeader}>
+                Last 30 Days (Daily Close)
+              </span>
+            </div>
+            <div className={styles.graphContent}>
+              <TimeSeriesChart />
+            </div>
+          </div>
+          <div className={styles.graphContainer}>
+            <div className={styles.graphHeader}>
+              Correlation Analysis
+              <span className={styles.subHeader}>Visualizing Scatter Data</span>
+            </div>
+            <div className={styles.graphContent}>
+              <ScatterPlotChart />
+            </div>
+          </div>
+        </div>
+        <div className={styles.table}>
+          <div className={styles.table1}>
+            <DataTable />
+          </div>
+        </div>
+      </div>
+    </PageLayout>
+  );
 };
 
 export { Dashboard };

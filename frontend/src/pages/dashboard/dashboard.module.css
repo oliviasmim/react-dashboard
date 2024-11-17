@@ -2,12 +2,13 @@
   display: flex;
   height: 100vh;
   overflow: hidden;
+  background-color: #FAFAFB;
 }
 
 .content {
   flex: 1;
   padding: 20px;
-  background-color: #ecf0f1;
+  background-color: #FAFAFB;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -28,8 +29,8 @@
 }
 
 .graphContainer {
-  background-color: #e0e0e0;
-  height: 350px;
+  background-color: #fff;
+  height: 240px;
   border-radius: 8px;
   position: relative;
   overflow: hidden;
@@ -42,7 +43,21 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  background-color: #b9b9b9;
+  font-size: 14px;
+}
+
+.graphHeader span {
+  font-size: 10px;
+  color: #666;
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+.subHeader {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+  font-weight: 400;
 }
 
 .graphContent {

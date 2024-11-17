@@ -7,6 +7,7 @@ const TimeSeriesChart: React.FC = () => {
 		time: string[];
 		price: number[];
 	}>({ time: [], price: [] });
+	
 
 	const colors = {
 		purple: {
@@ -20,10 +21,12 @@ const TimeSeriesChart: React.FC = () => {
 			quarter: "rgba(80, 102, 120, 0.25)",
 		},
 		blue: {
-			default: "#6495ed",
+			default: "#5BC4FF",
 			half: "#3b74dd40",
+			pink: "#FF5BEF",
 			quarter: "#527fd3",
 			line: "#3b74dd",
+			background: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 44%, rgba(0,212,255,1) 100%)",
 		},
 	};
 
@@ -96,18 +99,40 @@ const TimeSeriesChart: React.FC = () => {
 				data: chartData.price,
 				type: "line",
 				smooth: true,
+				symbolSize: 6,
 				lineStyle: {
-					color: colors.blue.line,
-					width: 2,
-				},
+					color: {
+					  type: "linear",
+					  x: 0,
+					  y: 0,
+					  x2: 1,
+					  y2: 1,
+					  colorStops: [
+						{ offset: 0, color: colors.blue.default },  
+						{ offset: 1, color: colors.blue.pink },    
+					  ],
+					  globalCoord: false,
+					},
+					width: 3,
+				  },
 				areaStyle: {
-					color: colors.blue.half,
-				},
+					color: {
+						type: "linear",
+						x: 0,
+						y: 0,
+						x2: 1,
+						y2: 1,
+						colorStops: [
+						  { offset: 0, color: colors.blue.default },  
+						  { offset: 1, color: colors.blue.pink },    
+						],
+						globalCoord: false,
+					  },				},
 			},
 		],
 	};
 
-	return <ReactECharts option={options} style={{ width: "100%" }} />;
+	return <ReactECharts option={options} style={{ width: "100%", height: "100%" }} />;
 };
 
 export { TimeSeriesChart };
