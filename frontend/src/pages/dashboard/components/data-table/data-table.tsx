@@ -7,6 +7,7 @@ import { FakeDataModel } from "../../../../services/fake-data-service";
 import { Button } from "react-bootstrap";
 import { colDefs, gridOptions } from "./constants";
 import { AddEntryModal } from "../add-entry-modal/add-entry-modal";
+import styles from "./data-table.module.css"
 
 export const DataTable = () => {
 	const data = useDataStore((state) => state.data);
@@ -15,7 +16,8 @@ export const DataTable = () => {
 
 	return (
 		<>
-			<div>
+			<div className={styles.tableHeader}>
+				<h5>Table data</h5>
 				<Button onClick={() => setShowModal(true)}>Add Entry</Button>
 			</div>
 			<div className="ag-theme-quartz" style={{ height: 500, width: "100%" }}>

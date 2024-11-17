@@ -1,0 +1,12 @@
+.tableHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+
+    h5 {
+        font-size: 14px;
+        font-weight: 400;
+    }
+}

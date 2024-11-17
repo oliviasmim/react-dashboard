@@ -72,11 +72,13 @@
 }
 
 .table1 {
-  background-color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
@@ -118,7 +120,6 @@ button.btnCustom {
   background-color: aqua;
 }
 
-/* Button.module.css */
 
 .customButton {
   background-color: #4CAF50;
