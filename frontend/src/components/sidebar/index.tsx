@@ -56,7 +56,9 @@ const Sidebar: React.FC = () => {
       </nav>
 
       <div className={styles.footer}>
-        <Image src={Avatar} className={styles.avatar} rounded />
+        <div className={styles.avatar}>
+        <Image src={Avatar}  rounded />
+        </div>
         {!collapsed && (
           <div className={styles.userinfo}>
             <span>John Doe</span>

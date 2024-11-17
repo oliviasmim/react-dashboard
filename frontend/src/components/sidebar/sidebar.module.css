@@ -8,7 +8,7 @@
   flex-direction: column;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   position: relative;
-  transition: width 800ms;
+  transition: width 400ms;
 }
 
 .collapseBtn {
@@ -37,14 +37,22 @@
 
 
 .sidebar.collapsed {
-  
   width: 70px;
-  
 
   nav ul li .itemContent {
     justify-content: center;
     width: 100%;
     gap: 10px;
+  }
+
+  .footer {
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+
+    i {
+      margin-left: 0;
+    }
   }
   
 }
@@ -137,10 +145,13 @@ nav ul li {
 .footer {
   margin-top: auto; 
   padding: 10px;
-  background-color: #e9ecef;
+  background-color: #615bff60;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  overflow: hidden;
+  border-radius: 0 0 20px 20px;
+  gap: 10px;
 
   i {
     margin-left: auto;
@@ -148,17 +159,25 @@ nav ul li {
 }
 
 .avatar {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 10px;
   overflow: hidden;
-  margin-right: 10px;
+  background-color: #a0a0b3;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img { 
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .userinfo {
   display: flex;
   flex-direction: column;
-
 
   span {
     font-size: 12px;
