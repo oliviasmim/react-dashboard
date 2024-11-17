@@ -44,19 +44,16 @@ export const useDataStore = create<DataState>()(
 				await handleFetchData(set);
 			},
 			addEntry: (entry) => {
-				set((state) => {
-					state.data.push(entry);
-					return { data: state.data };
-				});
+				set((state) => ({
+					data: [...state.data, entry],
+				}));
 			},
 			updateEntry: (entry, oldEntry) => {
-				set((state) => {
-					const index = state.data.findIndex((item) => item === oldEntry);
-					if (index !== -1) {
-						state.data[index] = entry;
-					}
-					return { data: state.data };
-				});
+				set((state) => ({
+					data: state.data.map((item) =>
+						item === oldEntry ? { ...item, ...entry } : item
+					),
+				}));
 			},
 			resetData: async () => {
 				set({ data: [] });
