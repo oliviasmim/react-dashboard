@@ -79,10 +79,7 @@ const AddEntryModal: React.FC<AddEntryFormProps> = ({ show, onHide }) => {
 				: "",
 		};
 
-		console.log("Form data after formatting", formattedData);
-
 		const existingEntry = findMatchingEntry(formattedData, data);
-
 		if (existingEntry) {
 			updateEntry(formattedData, existingEntry);
 		} else {
@@ -194,9 +191,11 @@ const AddEntryModal: React.FC<AddEntryFormProps> = ({ show, onHide }) => {
 											<DatePicker
 												placeholderText="Select a date"
 												onChange={(date) => {
-													field.onChange(date); // Pass the Date object directly
+													field.onChange(date);
 												}}
-												selected={new Date(field.value)} // Use field.value directly
+												selected={
+													field.value ? new Date(field.value) : new Date()
+												}
 												className={`form-control ${
 													formState.errors.last_contacted ? "is-invalid" : ""
 												}`}
