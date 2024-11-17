@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./sidebar.module.css";
 import Logo from "../../../public/logo.png";
 import { Image } from "react-bootstrap";
-import Avatar from '../../../public/User-avatar.svg.webp'
+import Avatar from "../../../public/User-avatar.svg.webp";
 
 const Sidebar: React.FC = () => {
+  const [collapsed, setCollapsed] = useState(false);
+
   const navItems = [
     { to: "/dashboard", label: "Dashboard", icon: "bi-columns-gap" },
     { to: "/analytics", label: "Analytics", icon: "bi-bar-chart" },
@@ -14,11 +16,24 @@ const Sidebar: React.FC = () => {
   ];
 
   return (
-    <aside className={styles.sidebar}>
-      <div className={styles.logo}>
-        <img src={Logo} alt="logo" />
-        <span>lawbrokr</span>
+    <aside className={`${styles.sidebar} ${collapsed ? styles.collapsed : ""}`}>
+      <div className={styles.header}>
+        <div className={styles.logo}>
+          <img src={Logo} alt="logo" />
+          {!collapsed && <span>lawbrokr</span>}
+        </div>
+        <button
+          className={styles.collapseBtn}
+          onClick={() => setCollapsed(!collapsed)}
+        >
+          <i
+            className={`bi ${
+              collapsed ? "bi-chevron-right" : "bi-chevron-left"
+            }`}
+          ></i>
+        </button>
       </div>
+
       <nav>
         <ul>
           {navItems.map((item) => (
@@ -30,8 +45,10 @@ const Sidebar: React.FC = () => {
               }
             >
               <li>
-                <i className={`bi ${item.icon}`}></i>
-                {item.label}
+                <div className={styles.itemContent}>
+                  <i className={`bi ${item.icon}`}></i>
+                  {!collapsed && item.label}
+                </div>
               </li>
             </NavLink>
           ))}
@@ -39,11 +56,13 @@ const Sidebar: React.FC = () => {
       </nav>
 
       <div className={styles.footer}>
-        <Image src={ Avatar } className={styles.avatar} rounded />
-        <div className={styles.userinfo}>
-          <span>John Doe</span>
-          <p>User</p>
-        </div>
+        <Image src={Avatar} className={styles.avatar} rounded />
+        {!collapsed && (
+          <div className={styles.userinfo}>
+            <span>John Doe</span>
+            <p>User</p>
+          </div>
+        )}
         <i className="bi bi-box-arrow-right"></i>
       </div>
     </aside>
