@@ -1,2 +1,2 @@
-export * from "./fake-data-service";
+export * from "./fetch-data-service";
 export * from "./fake-data-model";

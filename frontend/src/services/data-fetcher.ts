@@ -2,6 +2,7 @@ import axios, { AxiosRequestConfig } from "axios";
 
 type FetchDataOptions = {
 	url: string;
+	params?: Record<string, string | number>;
 	method?: AxiosRequestConfig["method"];
 	headers?: Record<string, string>;
 	data?: unknown;
@@ -9,6 +10,7 @@ type FetchDataOptions = {
 
 export const fetchData = async <T>({
 	url,
+	params,
 	method = "GET",
 	headers,
 	data,
@@ -16,12 +18,13 @@ export const fetchData = async <T>({
 	try {
 		const response = await axios({
 			url,
+			params,
 			method,
 			headers,
 			data,
 		});
 
-		return response.data.data;
+		return response.data;
 	} catch (error: unknown) {
 		if (axios.isAxiosError(error)) {
 			const message = error.response

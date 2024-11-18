@@ -3,7 +3,7 @@ export interface FakeDataModel {
 	company: string;
 	country: string;
 	employees: number;
-	last_contacted: string; 
+	last_contacted: string;
 	notes?: string;
 	revenue: number;
 	sales_rep: string;
