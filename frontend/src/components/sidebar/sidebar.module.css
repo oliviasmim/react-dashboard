@@ -9,6 +9,7 @@
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   position: relative;
   transition: width 400ms;
+  z-index: 10;
 }
 
 .collapseBtn {
@@ -54,8 +55,10 @@
       margin-left: 0;
     }
   }
+
   
 }
+
 
 .logo {
   margin-bottom: 20px;

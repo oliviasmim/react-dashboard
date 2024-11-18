@@ -4,6 +4,7 @@ import styles from "./sidebar.module.css";
 import Logo from "../../../public/logo.png";
 import { Image } from "react-bootstrap";
 import Avatar from "../../../public/User-avatar.svg.webp";
+import { Tooltip } from "react-tooltip";
 
 const Sidebar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -27,9 +28,7 @@ const Sidebar: React.FC = () => {
           onClick={() => setCollapsed(!collapsed)}
         >
           <i
-            className={`bi ${
-              collapsed ? "bi-chevron-right" : "bi-chevron-left"
-            }`}
+            className={`bi ${collapsed ? "bi-chevron-right" : "bi-chevron-left"}`}
           ></i>
         </button>
       </div>
@@ -43,6 +42,8 @@ const Sidebar: React.FC = () => {
               className={({ isActive }) =>
                 isActive ? `${styles.active} ${styles.navItem}` : styles.navItem
               }
+              data-tooltip-id={`tooltip-${item.label}`}
+              data-tooltip-content={item.label}
             >
               <li>
                 <div className={styles.itemContent}>
@@ -55,9 +56,17 @@ const Sidebar: React.FC = () => {
         </ul>
       </nav>
 
+      {collapsed && (
+        <div>
+          {navItems.map((item) => (
+            <Tooltip key={item.to} id={`tooltip-${item.label}`} place="right" effect="solid" />
+          ))}
+        </div>
+      )}
+
       <div className={styles.footer}>
         <div className={styles.avatar}>
-        <Image src={Avatar}  rounded />
+          <Image src={Avatar} rounded />
         </div>
         {!collapsed && (
           <div className={styles.userinfo}>
